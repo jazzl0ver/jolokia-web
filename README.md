@@ -9,7 +9,7 @@ Jolokia Web interface.
 ### Build
 ```sh
 $ git clone https://github.com/wwfdoink/jolokia-web.git; cd jolokia-web
-$ docker run --rm -u $(id) -v "$PWD":/home/gradle/project -w /home/gradle/project gradle:4.0.1 gradle build onejar
+$ docker run --rm -u $(id -u) -v "$PWD":/home/gradle/project -w /home/gradle/project gradle:4.0.1 gradle build onejar
 ```
 This will create the fatJar `build/libs/project-all.jar`
 
