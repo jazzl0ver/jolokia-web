@@ -8,9 +8,10 @@ Jolokia Web interface.
 
 ### Build
 ```sh
-$ gradle build onejar
+$ git clone https://github.com/wwfdoink/jolokia-web.git; cd jolokia-web
+$ docker run --rm -u $(id) -v "$PWD":/home/gradle/project -w /home/gradle/project gradle:4.0.1 gradle build onejar
 ```
-This will create the fatJar `build/libs/jolokia-web-all.jar`
+This will create the fatJar `build/libs/project-all.jar`
 
 ### Lib Usage example
 ```java
@@ -41,20 +42,20 @@ app.start();
 app.stop();
 ```
 Open your browser and navigate to http://yourhost:8080/
-### CLI Usage
+### CLI Usage (Java 8 is required)
 ```sh
-$ java -jar jolokia-web-all.jar
-  --port=8080
-  --contextPath=jolokiaweb
-  --permissions=rwxn
-  --remoteAgentUrl=http://localhost:8778/jolokia
-  --remoteAgentUsername=user
-  --remoteAgentPassword=password
-  --ssl
-  --sslKeyStorePath
-  --sslKeyStoreAlias
-  --sslKeyStorePassword
-  --allowSelfSignedCert
+$ java -jar project-all.jar \
+  --port=8080 \
+  --contextPath=jolokiaweb \
+  --permissions=rwxn \
+  --remoteAgentUrl=http://localhost:8778/jolokia \
+  --remoteAgentUsername=user \
+  --remoteAgentPassword=password \
+  --ssl \
+  --sslKeyStorePath \
+  --sslKeyStoreAlias \
+  --sslKeyStorePassword \
+  --allowSelfSignedCert \
   --requireAuth=<username>,<password>
 ```
 Open your browser and navigate to http://yourhost:8080/
